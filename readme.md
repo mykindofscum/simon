@@ -16,7 +16,7 @@ SIMON (memory game) pseudocode
 Start mode
 -Game starts with easy pattern: one button lights up with a tone, waits 
 -Timing (Asynchronous function, setInterval method, setTimeout) for player to press button
--As game progress, each round increases previous patter by one button
+-As game progress, each round increases previous pattern by one button
 
 
 -if player chose the right pattern, 

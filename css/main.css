@@ -1,0 +1,16 @@
+html, * {
+    font-family: helvetica;
+    box-sizing: border-box;
+  }
+  
+  body {
+  /* center stuff on page, height */
+    height: 100vh;
+    display: flex;
+    /* centering vertically */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
