@@ -7,7 +7,6 @@ SIMON (memory game) pseudocode
 -Sound: Four tones for buttons
 
 
-
 -Render?
 -player pushes on/off switch
 -choose Start or Strict or Sound
