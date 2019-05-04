@@ -16,13 +16,13 @@ html, * {
 
   .board {
     background: black;
-    height: 560px;
-    width: 560px;
+    height: 600px;
+    width: 600px;
     border-radius: 50%;
     border: 2px solid palevioletred;
 }
 
-  #button-tl {
+  #button-y {
     background: goldenrod;
     height: 220px;
     width: 215px;
@@ -32,7 +32,7 @@ html, * {
     left: 50px;
 }
 
-  #button-tr {
+  #button-b {
     background: blue;
     height: 215px;
     width: 215px;
@@ -42,7 +42,7 @@ html, * {
     left: 300px;
 }
 
-#button-bl {
+#button-r {
     background: red;
     height: 215px;
     width: 215px;
@@ -52,7 +52,7 @@ html, * {
     left: 50px;
 }
 
-#button-br {
+#button-g {
     background: green;
     height: 215px;
     width: 215px;
@@ -68,7 +68,7 @@ html, * {
     width: 260px;
     border-radius: 50%;
     position: relative;
-    bottom: 720px;
+    bottom: 450px;
     left: 150px;
     border: 4px solid white;
 }
