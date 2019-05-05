@@ -1,5 +1,6 @@
-<img src="https://imgur.com/F5bVk3x">
 
+
+<img src="/Simonwireframe.JPG" width=600 height=700>
 
 SIMON (memory game) pseudocode
 
