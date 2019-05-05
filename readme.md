@@ -1,3 +1,6 @@
+<img src="https://imgur.com/F5bVk3x">
+
+
 SIMON (memory game) pseudocode
 
 -initialize board : Buttons
