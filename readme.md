@@ -4,18 +4,17 @@ SIMON (memory game) pseudocode
 -Four buttons, four different colors: red, blue, green, yellow
 -A different sound/beep for each color
 -on/off, Start, Strict, Sound(on/off) and a counter display
--Sound: Four tones for buttons
+-Sound: Four tones in the key of e, c#, a, e(one step down) for buttons
 
+Start mode (Initialize)
+-Game starts with easy pattern: one button lights up with a tone, waits 
+-Timing (Asynchronous function, setInterval method, setTimeout) for player to press button
+-As game progress, each round increases previous pattern by one button
 
 -Render?
 -player pushes on/off switch
 -choose Start or Strict or Sound
 -counter display current level: 1
-
-Start mode
--Game starts with easy pattern: one button lights up with a tone, waits 
--Timing (Asynchronous function, setInterval method, setTimeout) for player to press button
--As game progress, each round increases previous pattern by one button
 
 
 -if player chose the right pattern, 

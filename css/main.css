@@ -1,38 +1,47 @@
 html, * {
     font-family: helvetica;
     box-sizing: border-box;
-  }
+}
   
-  body {
+body {
   /* center stuff on page, height */
     height: 100vh;
-    display: flex;
+    display: grid;
     /* centering vertically */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-  }
-
-  .board {
-    background: black;
-    height: 600px;
-    width: 600px;
-    border-radius: 50%;
-    border: 2px solid palevioletred;
 }
 
-  #button-y {
+h1 {
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.board {
+    background: black;
+    height: 580px;
+    width: 580px;
+    border-radius: 50%;
+    border: 2px solid palevioletred;
+    justify-content: center;
+    
+}
+
+#button-y {
     background: goldenrod;
-    height: 220px;
+    height: 215px;
     width: 215px;
     border-radius: 270px 0 0 0; 
     position: relative;
-    top: 55px;
+    top: 50px;
     left: 50px;
+    
 }
 
-  #button-b {
+#button-b {
     background: blue;
     height: 215px;
     width: 215px;
@@ -68,8 +77,16 @@ html, * {
     width: 260px;
     border-radius: 50%;
     position: relative;
-    bottom: 450px;
+    bottom: 440px;
     left: 150px;
     border: 4px solid white;
+    display: flex;
+    /* set the panel buttons horizontally */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
+#reset #start #strict{
+    /* justify-content: center; */
+}
