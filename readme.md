@@ -1,3 +1,7 @@
+
+
+<img src="/Simonwireframe.JPG" width=600 height=700>
+
 SIMON (memory game) pseudocode
 
 -initialize board : Buttons
