@@ -12,10 +12,14 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    /* background-color: paleturquoise; */
+    background-image: url("https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    
 }
 
 h1 {
     text-align: center;
+    color: white;
 }
 
 
