@@ -1,15 +1,22 @@
 // modify to use "active" class *
 // toggle "active" class for each round by the computer
-// add Math.ranom() to moveArray
+// add Math.random() to moveArray 
 // record all moves by the computer in a new array
+// https://s3.amazonaws.com/freecodecamp/simonSound3.mp3
+// 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3',
+// 'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3',
+// 'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3',
+// 'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3',
 
-/*----- constants -----*/
+
+/*----- constants -----*/ 
+
 const buttonSound = [
-    'https://s3.amazonaws.com/freecodecamp/simonSound3.mp3',
-    'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3',
-    'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3',
-    'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3',
-    'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3',
+    'sound/piano-e.wav',
+    'sound/piano-c.wav',
+    'sound/piano-a.wav',
+    'sound/piano-g.wav',
+    'sound/Sad_Trombone.mp3'
 ];
 
 
@@ -22,7 +29,7 @@ const soundArray = [1, 2, 3, 4];
 
 /*----- cached element references -----*/
 const playEl = document.querySelector("#round h1");
-const resetEl = document.querySelector("#onOff h1");
+const resetEl = document.querySelector("#reset h1");
 const strictEl = document.querySelector("#strict h1");
 
 const buttonPlayY = document.querySelector(".board #button-y");
@@ -48,6 +55,8 @@ document.querySelector('.board #button-r').addEventListener('click', playStart);
 
 document.querySelector('#start').addEventListener('click', playStart);
 
+
+
 var soundPlayer = new Audio()
 
 function playStart(evt) {
@@ -56,6 +65,7 @@ function playStart(evt) {
     debugger;
 
     if (evt.target.id !== "start") {
+    //sound from the buttonSoundArray linked to 'data-button'.
         soundPlayer.src = buttonSound[parseInt(evt.target.getAttribute('data-button')) - 1]
         soundPlayer.play()
     } else {
@@ -65,15 +75,19 @@ function playStart(evt) {
     
     //if start button is pressed, run playStart function, game starts
     this.classList.toggle('active');
-
-    var movesArray = [0, 1, 2, 3, 4];
+    
+    var movesArray = [1, 2, 3, 4];
     var offset = 0;
     movesArray.forEach(function(movesArray) {
     setTimeout(function() {
+        document.getElementById('button-y').classList.add('active-button');
+    setTimeout(function() {
+        document.getElementById('button-y').classList.remove('active-button');
+    }, 500);
         console.log(Math.floor(Math.random(movesArray) * 4) + 1);
     }, 1000 + offset);
     offset += 1000;
-    
+
     });
 }
 
@@ -95,7 +109,7 @@ function init() {
         
     };
     winner = null;
-    render(round);
+    // render(round);
 }
 
 

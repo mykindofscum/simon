@@ -32,12 +32,11 @@ h1 {
     opacity: .5;
 }
 
-.button:active {
+.button:active, .active-button {
     opacity: 1;
     border: solid 5px palegreen;
-    /* transition: outline 0.2s linear; */
-    /* margin: 0.5em; */
-
+    transition: outline 0.2s linear;
+    margin: 0.5em;
 }
 
 #button-y {
@@ -51,8 +50,8 @@ h1 {
 }
 
 #button-y:active {
-    top: 30px;
-    left: 30px;
+    top: 40px;
+    left: 40px;
 }
 
 #button-b {
@@ -63,6 +62,11 @@ h1 {
     position: relative;
     bottom: 170px;
     left: 300px;
+}
+
+#button-b:active {
+    bottom: 160px;
+    left: 310px;
 }
 
 
@@ -76,6 +80,11 @@ h1 {
     left: 50px;
 }
 
+#button-r:active {
+    bottom: 120px;
+    left: 40px;
+}
+
 #button-g {
     background: green;
     height: 215px;
@@ -84,6 +93,11 @@ h1 {
     position: relative;
     bottom: 350px;
     left: 300px;
+}
+
+#button-g:active {
+    bottom: 340px;
+    left: 290px;
 }
 
 #panel {
