@@ -25,8 +25,8 @@ h1 {
 
 .board {
     background: lightgray;
-    height: 560px;
-    width: 560px;
+    height: 540px;
+    width: 540px;
     border-radius: 50%;
     border: 2px solid;
     justify-content: center;
