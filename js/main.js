@@ -2,12 +2,6 @@
 // toggle "active" class for each round by the computer
 // add Math.random() to moveArray 
 // record all moves by the computer in a new array
-// https://s3.amazonaws.com/freecodecamp/simonSound3.mp3
-// 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3',
-// 'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3',
-// 'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3',
-// 'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3',
-
 
 /*----- constants -----*/ 
 
@@ -17,18 +11,20 @@ const buttonSound = [
     'sound/piano-a.wav',
     'sound/piano-g.wav',
     'sound/correct-sound.wav',
-    'sound/Sad_Trombone.mp3'
+    'sound/Startexplosion5.wav',
+    'sound/8-bit-wrong-2.wav'
 ];
 
-
 // buttonSound.play();
-// E note: blue, c# yellow, a red, e octave down: green
 
 /*----- app's state (variables) -----*/
 let sequence, guess, badGuess, reset, gameover, start, strict;
-const soundArray = [1, 2, 3, 4, 5, 6];
 let guessArray = [];
 let seqArray = [];
+let buttonId = ['button-y', 'button-b', 'button-g', 'button-r'];
+let matchArray = true;
+var movesArray = [0, 1, 2, 3];
+
 
 /*----- cached element references -----*/
 const playEl = document.querySelector("#round h1");
@@ -55,55 +51,8 @@ document.querySelector('.board #button-y').addEventListener('click', playStart);
 document.querySelector('.board #button-b').addEventListener('click', playStart);
 document.querySelector('.board #button-g').addEventListener('click', playStart);
 document.querySelector('.board #button-r').addEventListener('click', playStart);
-
+// start button init and playStart
 document.querySelector('#start').addEventListener('click', playStart);
-
-
-
-var soundPlayer = new Audio();
-
-function playStart(evt) {
-    console.log(evt.target.getAttribute('data-button'));
-    
-    debugger;
-    
-    if (evt.target.id !== "start") {
-        //sound from the buttonSoundArray linked to 'data-button'.
-        soundPlayer.src = buttonSound[parseInt(evt.target.getAttribute('data-button')) - 1]
-        soundPlayer.play()
-    } else {
-        soundPlayer.src = buttonSound[4]
-        soundPlayer.play();
-    }
-    
-    //if start button is pressed, run playStart function, game starts
-    
-
-    this.classList.toggle('active');
-
-    var movesArray = [1, 2, 3, 4];
-    var offset = 0;
-    movesArray.forEach(function(movesArray) {
-    setTimeout(function() {
-        document.getElementById('button-y').classList.add('active-button');
-    setTimeout(function() {
-        document.getElementById('button-y').classList.remove('active-button');
-    }, 250);
-        console.log(Math.floor(Math.random(movesArray) * 4) + 1);
-    }, 1000 + offset);
-    offset += 1000;
-});
-
-
-// this.movesArray.push(seqArray);
-    // if (Math.floor(Math.random(movesArray) * 4) + 1 === guessArray) {
-    //     soundPlayer.src = buttonSound[6]
-    //     soundPlayer.play([5]);
-    // }
-
-
-
-
 
 
 
@@ -128,10 +77,52 @@ function init() {
     // render(round);
 }
 
+playStart();
+var soundPlayer = new Audio();
+    function playStart(evt) {
+    let soundIndex = evt.target.getAttribute('data-button');
+    soundPlayer.src = buttonSound[soundIndex];
+    soundPlayer.play();
 
-function playStrict() {
+// debugger;
+//if start button is pressed, run playStart function, game starts
 
+
+this.classList.toggle('active');
+var movesArray = [0, 1, 2, 3];
+var offset = 0;
+movesArray.forEach(function(move) {
+    setTimeout(function() {
+        document.getElementById(`${buttonId[move]}`).classList.add('active-button');
+        
+        setTimeout(function() {
+            document.getElementById(`${buttonId[move]}`).classList.remove('active-button');
+    }, 500);
+        console.log(Math.floor(Math.random() * 4) + 1);
+    }, 1000 + offset);
+    
+    offset += 1000;
+    seqArray.push(Math.floor(Math.random() * 4 + 1));
+});
+
+function addSeqArray() {
+    let rando = Math.floor(Math.random() * 4 + 1)
+    switch(rando) {
+        case 'yellow':
+        seqArray.push(0);
+        break;
+        case 'blue':
+        seqArray.push(1);
+        break;
+        case 'green':
+        seqArray.push(2);
+        break;
+        case 'red':
+        seqArray.push(3);
+    }
 }
+
+
 
 function showMoves(movesArray) {
     // for each element in round
