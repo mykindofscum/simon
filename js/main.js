@@ -18,7 +18,7 @@ const buttonSound = [
 // buttonSound.play();
 
 /*----- app's state (variables) -----*/
-let sequence, guess, badGuess, reset, gameover, start, strict;
+let sequence, guess, reset, gameover, start, strict;
 let playerArray = [];
 let seqArray = [];
 let buttonId = ['button-y', 'button-b', 'button-g', 'button-r'];
@@ -46,10 +46,10 @@ parseInt(buttonPlayR.getAttribute('data-button'));
 
 
 /*----- event listeners -----*/
-// document.querySelector('.board #button-y').addEventListener('click', playStart);
-// document.querySelector('.board #button-b').addEventListener('click', playStart);
-// document.querySelector('.board #button-g').addEventListener('click', playStart);
-// document.querySelector('.board #button-r').addEventListener('click', playStart);
+document.querySelector('.board #button-y').addEventListener('click', playStart);
+document.querySelector('.board #button-b').addEventListener('click', playStart);
+document.querySelector('.board #button-g').addEventListener('click', playStart);
+document.querySelector('.board #button-r').addEventListener('click', playStart);
 
 // start button init and playStart
 document.querySelector('#start').addEventListener('click', playStart);
@@ -71,30 +71,29 @@ soundPlayer.play();
 }
 
 // Simonsays
-function playStarted() {
+function playStart(evt) {
     var offset = 0;
-    // this.classList.toggle('active');
-movesArray.forEach(function(move) {
+    movesArray.forEach(function(move) {
     setTimeout(function() {
         document.getElementById(`${buttonId[move]}`).classList.add('active-button');
     setTimeout(function() {
             document.getElementById(`${buttonId[move]}`).classList.remove('active-button');
     }, 200);
-        console.log(Math.floor(Math.random() * 4) + 1);
+        // console.log(Math.floor(Math.random() * 4) + 1);
     }, 700 + offset);
     
-    // offset += 2000;
+    offset += 2000;
     // seqArray.push(Math.floor(Math.random() * 4 + 1));
     });
+    addSeqArray();
 }
 
 function addSeqArray() {
     seqArray.push(Math.floor(Math.random() * 4 + 1)) ;
-
 }
 
-
 function playerGuess() {
+    
     if (playerArray.length === seqArray.length) {
         //player Correct sound 
     //     add player's clicks into playerArray
@@ -102,6 +101,11 @@ function playerGuess() {
     // clear playerArr .emptyt()
     // prompt "Wrong, guess again"
 }
+
+// function getWinner() {
+    
+// }
+
 
 function init() {
     
@@ -137,3 +141,4 @@ function increaseRound(currentRound) {
 
 // for each element in round
 // console.log the numbers in the round, 1 at a time with 1s between logs
+}
