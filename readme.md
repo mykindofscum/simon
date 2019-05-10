@@ -1,7 +1,7 @@
 
 
-<img src="/screenshot.png" width=600 height=600>
-
+* Screenshots*:
+![Link](https://i.imgur.com/GLBya5Q.png)
 
 *Simon in Space*: A memory game that involves four different pads that light up in a sequence for
 the player to follow. If the player guesses correct, he/she wins. 
