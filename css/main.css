@@ -12,21 +12,21 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* background-color: paleturquoise; */
     background-image: url("https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 
 }
 
-h1 {
+h1, h2 {
     text-align: center;
     color: white;
 }
 
 
+
 .board {
     background: lightgray;
-    height: 540px;
-    width: 540px;
+    height: 570px;
+    width: 570px;
     border-radius: 50%;
     border: 2px solid;
     justify-content: center;
