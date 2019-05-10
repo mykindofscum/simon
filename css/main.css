@@ -13,11 +13,7 @@ body {
     background-image: url("https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 }
 
-<<<<<<< HEAD
 h1, h2 {
-=======
-h1, h2{
->>>>>>> master
     text-align: center;
     color: red;
     font-family: 'Vampiro One', cursive;
@@ -25,13 +21,8 @@ h1, h2{
 
 .board {
     background: lightgray;
-<<<<<<< HEAD
     height: 570px;
     width: 570px;
-=======
-    height: 580px;
-    width: 580px;
->>>>>>> master
     border-radius: 50%;
     border: 2px solid;
     justify-content: center;

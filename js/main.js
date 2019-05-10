@@ -14,10 +14,6 @@ let soundPlayer = new Audio();
 
 
 /*----- app's state (variables) -----*/
-<<<<<<< HEAD
-let guess, start;
-=======
->>>>>>> master
 let playerArray = [];
 let movesArray = [0, 1, 2, 3];
 let buttonId = ['button-y', 'button-b', 'button-r', 'button-g'];
@@ -54,11 +50,7 @@ function simonSays() {
     for (let i = 0;i < 4;i++) {
         movesArray[i] = Math.floor(Math.random() * 4);
     } 
-<<<<<<< HEAD
-    console.log(movesArray);
-=======
->>>>>>> master
-    movesArray.forEach(function(move) {
+        movesArray.forEach(function(move) {
         setTimeout(function() {
             document.getElementById(`${buttonId[move]}`).classList.add('active-button');
             
@@ -77,9 +69,6 @@ function playerSays(evt) {
         soundPlayer.src = buttonSound[soundIndex];
         soundPlayer.play();
         playerArray.push(parseInt(soundIndex));
-<<<<<<< HEAD
-    
-        console.log(playerArray);
 
     if (playerArray.length === movesArray.length) {
         getWinner();
@@ -105,42 +94,3 @@ function getWinner() {
         playerArray = [];
        }
 }
-
-
-    
-    
-    
-
-
-
-
-
-
-
-=======
-
-    if (playerArray.length === movesArray.length) {
-        getWinner();
-    } 
-}
-
-function getWinner() {
-   
-    let result = true;
-    
-    for (let i = 0; i < playerArray.length; i++) {
-        if (playerArray[i] !== movesArray[i]) {
-            result = false;
-        }
-    }
-    if (result === true) {
-        winAudio.play();
-        msgEl.innerHTML = `You Win!`; 
-        playerArray = [];
-    } else {
-        loseAudio.play();
-        msgEl.innerHTML = `You Lose!`;
-        playerArray = [];
-       }
-}
->>>>>>> master
