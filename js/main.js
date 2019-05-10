@@ -1,144 +1,97 @@
-// modify to use "active" class *
-// toggle "active" class for each round by the computer
-// add Math.random() to moveArray 
-// record all moves by the computer in a new array
 
 /*----- constants -----*/ 
-
 const buttonSound = [
     'sound/piano-e.wav',
     'sound/piano-c.wav',
     'sound/piano-a.wav',
     'sound/piano-g.wav',
-    'sound/correct-sound.wav',
-    'sound/Startexplosion5.wav',
-    'sound/8-bit-wrong-2.wav'
+    'sound/Startexplosion5.wav'
 ];
 
-// buttonSound.play();
+const winAudio = new Audio('sound/correct-sound.wav');
+const loseAudio = new Audio('sound/8-bit-wrong-2.wav');
+let soundPlayer = new Audio();
+
 
 /*----- app's state (variables) -----*/
-let sequence, guess, reset, gameover, start, strict;
+let guess, start;
 let playerArray = [];
-let seqArray = [];
-let buttonId = ['button-y', 'button-b', 'button-g', 'button-r'];
-let matchArray = true;
-var movesArray = [0, 1, 2, 3];
-//  
+let movesArray = [0, 1, 2, 3];
+let buttonId = ['button-y', 'button-b', 'button-r', 'button-g'];
+
 
 /*----- cached element references -----*/
-const playEl = document.querySelector("#round h1");
-const resetEl = document.querySelector("#reset h1");
-const strictEl = document.querySelector("#strict h1");
-
-const buttonPlayY = document.querySelector(".board #button-y");
-parseInt(buttonPlayY.getAttribute('data-button'));
-// > "1"
-const buttonPlayB = document.querySelector(".board #button-b");
-parseInt(buttonPlayB.getAttribute('data-button'));
-
-const buttonPlayG = document.querySelector(".board #button-g");
-parseInt(buttonPlayG.getAttribute('data-button'));
-
-const buttonPlayR = document.querySelector(".board #button-r");
-parseInt(buttonPlayR.getAttribute('data-button'));
-
-
+const buttonY = document.querySelector(".board #button-y");
+parseInt(buttonY.getAttribute('data-button'));
+const buttonB = document.querySelector(".board #button-b");
+parseInt(buttonB.getAttribute('data-button'));
+const buttonG = document.querySelector(".board #button-g");
+parseInt(buttonG.getAttribute('data-button'));
+const buttonR = document.querySelector(".board #button-r");
+parseInt(buttonR.getAttribute('data-button'));
+const msgEl = document.getElementById('msg');
 
 /*----- event listeners -----*/
-document.querySelector('.board #button-y').addEventListener('click', playStart);
-document.querySelector('.board #button-b').addEventListener('click', playStart);
-document.querySelector('.board #button-g').addEventListener('click', playStart);
-document.querySelector('.board #button-r').addEventListener('click', playStart);
-
-// start button init and playStart
+document.querySelector('.board #button-y').addEventListener('click', playerSays);
+document.querySelector('.board #button-b').addEventListener('click', playerSays);
+document.querySelector('.board #button-g').addEventListener('click', playerSays);
+document.querySelector('.board #button-r').addEventListener('click', playerSays);
 document.querySelector('#start').addEventListener('click', playStart);
-
-
 
 /*----- functions -----*/
 
-// debugger;
-//if start button is pressed, run playStart function, game starts
-// playStart();
-
-init();
-
 function playStart(evt) {
-let soundIndex = evt.target.getAttribute('data-button');
-soundPlayer.src = buttonSound[soundIndex];
-soundPlayer.play();
+    msgEl.innerHTML = '';
+    playerArray = [];
+    simonSays();
 }
 
-// Simonsays
-function playStart(evt) {
+function simonSays() {
     var offset = 0;
+    for (let i = 0;i < 4;i++) {
+        movesArray[i] = Math.floor(Math.random() * 4);
+    } 
     movesArray.forEach(function(move) {
-    setTimeout(function() {
-        document.getElementById(`${buttonId[move]}`).classList.add('active-button');
-    setTimeout(function() {
-            document.getElementById(`${buttonId[move]}`).classList.remove('active-button');
-    }, 200);
-        // console.log(Math.floor(Math.random() * 4) + 1);
-    }, 700 + offset);
-    
-    offset += 2000;
-    // seqArray.push(Math.floor(Math.random() * 4 + 1));
+        setTimeout(function() {
+            document.getElementById(`${buttonId[move]}`).classList.add('active-button');
+            
+            setTimeout(function() {
+                document.getElementById(`${buttonId[move]}`).classList.remove('active-button');
+            }, 700);
+            
+        }, 800 + offset);
+        
+        offset += 1000;
     });
-    addSeqArray();
 }
 
-function addSeqArray() {
-    seqArray.push(Math.floor(Math.random() * 4 + 1)) ;
+function playerSays(evt) {
+    let soundIndex = evt.target.getAttribute('data-button');
+        soundPlayer.src = buttonSound[soundIndex];
+        soundPlayer.play();
+        playerArray.push(parseInt(soundIndex));
+
+    if (playerArray.length === movesArray.length) {
+        getWinner();
+    } 
 }
 
-function playerGuess() {
+function getWinner() {
+   
+    let result = true;
     
-    if (playerArray.length === seqArray.length) {
-        //player Correct sound 
-    //     add player's clicks into playerArray
-    // } else play Wrong answer sound clip 
-    // clear playerArr .emptyt()
-    // prompt "Wrong, guess again"
-}
-
-// function getWinner() {
-    
-// }
-
-
-function init() {
-    
-    turn = 1;
-    winner = null;
-}
-
-
-function showMoves(movesArray) {
-    
-}
-
-function increaseRound(currentRound) {
-    // add a new element to the end of the currentRound array
-    return Math.floor(Math.random() * 4) + 1;
-    // call render again with the updated sequence
-}
-
-
-// let rando = Math.floor(Math.random() * 4 + 1)
-// switch(rando) {
-//     case 'yellow':
-//     seqArray.push(0);
-//     break;
-//     case 'blue':
-//     seqArray.push(1);
-//     break;
-//     case 'green':
-//     seqArray.push(2);
-//     break;
-//     case 'red':
-//     seqArray.push(3);
-
-// for each element in round
-// console.log the numbers in the round, 1 at a time with 1s between logs
+    for (let i = 0; i < playerArray.length; i++) {
+        if (playerArray[i] !== movesArray[i]) {
+            result = false;
+        }
+    }
+    if (result === true) {
+        winAudio.play();
+        msgEl.innerHTML = `You Win!`; 
+        playerArray = [];
+    } else {
+        loseAudio.play();
+        msgEl.innerHTML = `You Lose!`;
+        playerArray = [];
+       }
 }
