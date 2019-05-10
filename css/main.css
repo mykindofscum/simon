@@ -4,24 +4,20 @@ html, * {
 }
   
 body {
-  /* center stuff on page, height */
     height: 100vh;
     display: grid;
-    /* centering vertically */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     background-image: url("https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-
 }
 
 h1, h2 {
     text-align: center;
-    color: white;
+    color: red;
+    font-family: 'Vampiro One', cursive;
 }
-
-
 
 .board {
     background: lightgray;
@@ -73,7 +69,6 @@ h1, h2 {
     left: 310px;
 }
 
-
 #button-r {
     background: red;
     height: 215px;
@@ -114,7 +109,6 @@ h1, h2 {
     left: 164px;
     border: 4px solid white;
     display: flex;
-    /* set the panel buttons horizontally */
     flex-direction: row;
     justify-content: center;
     align-items: center;
