@@ -14,7 +14,6 @@ let soundPlayer = new Audio();
 
 
 /*----- app's state (variables) -----*/
-let guess, start;
 let playerArray = [];
 let movesArray = [0, 1, 2, 3];
 let buttonId = ['button-y', 'button-b', 'button-r', 'button-g'];

@@ -14,11 +14,11 @@ body {
 
 }
 
-h1 {
+h1, h2{
     text-align: center;
-    color: white;
+    color: red;
+    font-family: 'Vampiro One', cursive;
 }
-
 
 .board {
     background: lightgray;
