@@ -1,49 +1,16 @@
 
 
-<img src="/Simonwireframe.JPG" width=600 height=700>
-
-SIMON (memory game) pseudocode
-
--initialize board : Buttons
--Four buttons, four different colors: red, blue, green, yellow
--A different sound/beep for each color
--on/off, Start, Strict, Sound(on/off) and a counter display
--Sound: Four tones in the key of e, c#, a, e(one step down) for buttons
-
-Start mode (Initialize)
--Game starts with easy pattern: one button lights up with a tone, waits 
--Timing (Asynchronous function, setInterval method, setTimeout) for player to press button
--As game progress, each round increases previous pattern by one button
-
--Render?
--player pushes on/off switch
--choose Start or Strict or Sound
--counter display current level: 1
+<img src="/screenshot.png" width=600 height=600>
 
 
--if player chose the right pattern, 
--counter displays 2,
-	-a pleasant beep sound
+*Simon in Space*: A memory game that involves four different pads that light up in a sequence for
+the player to follow. If the player guesses correct, he/she wins. 
 
-Otherwise
-	-else alert/error beep
-	-repeats pattern for player to try again (5 times? 10? Infinity?)
-	-each round increases by one button as well as the speed
+The Original Simon Game was released in 1978 at Studio 54 in New York City. It was an instant success
+selling for $25 at the time. The sounds were inspired by the tone fo bugles. 
 
-Memory
-	-store memory of players pattern to match game pattern
-    -randomize patterns
+*Technologies used*: Javascript, HTML, CSS
 
+*Getting Started*: https://mykindofscum.github.io/simon/  Instructions: Just press start. Look at pattern. Try to follow pattern. Enjoy.
 
-Strict mode
-	-player cannot make any mistakes
-	-game starts over if player guesses wrong
-	-speed of game gets faster?
-
--total rounds: 20? 25? 30?
-
-End Game
-    -Player guesses all patterns correct
-    -Display "You Win", 8-bit music plays
-
-Bonus features if possible: backdrop changes colors/different lol cat pic after each round
+*icebox*: Try to make the game a litte more like the original simon game, add fun animation for the buttons when pressed, add rounds, retries when player guesses wrong, string mode, a display round window.
